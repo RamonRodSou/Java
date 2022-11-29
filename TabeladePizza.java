@@ -24,13 +24,11 @@ public class TabeladePizza {
 
 		iterarEExibirPosicoesDoVetorString(qualPizza);
 		
-			Integer saborEscolhido = escolhaNumeroInteiro("Voce escolheu o sabor: ", scanner);
-			Boolean escolhaValida = verificarPosicaoEscolhida(saborEscolhido, qualPizza);
-		{
-		}
+			Integer saborEscolhido = escolhaNumeroInteiro("Qual é o sabor da Pizza? ", scanner);
+			
 		colocarTraco();
 
-		if (!escolhaValida) {
+		if (!verificarPosicaoEscolhida(saborEscolhido, qualPizza)) {
 			escolhaInvalida();
 		}
 		return qualPizza[saborEscolhido];
@@ -42,20 +40,18 @@ public class TabeladePizza {
 
 		iterarEExibirPosicoesDoVetorString(formaDePagamento);
 
-			Integer formaPagamentoEscolhida = escolhaNumeroInteiro("Sua forma de pagamento escolhida é: ", scanner);
-			Boolean pagamento = verificarPosicaoEscolhida(formaPagamentoEscolhida, formaDePagamento);
-			Boolean pagamentoEmPix = true;
-			String pagamentoEscolhido = formaDePagamento[formaPagamentoEscolhida];
+			Integer formaPagamentoEscolhida = escolhaNumeroInteiro("Qual forma de Pagamento? ", scanner);
 
-		if (!pagamento) {
-			escolhaInvalida();
-		}
+			if (!verificarPosicaoEscolhida(formaPagamentoEscolhida,formaDePagamento)) {
+				escolhaInvalida();
+			}
 		colocarTraco();
-
+		
+		String pagamentoEscolhido = formaDePagamento[formaPagamentoEscolhida];
 		mensagem("Voce Escolheu Pizza de: " + pizzaEscolhida + ".");
 		mensagem("Forma de Pagamento: " + pagamentoEscolhido + ".");
-
-		if (pagamentoEmPix = formaPagamentoEscolhida.equals(3)) {
+		
+		if (formaPagamentoEscolhida.equals(3)) {
 			mensagem("Chave Pix: 21 987654321");
 		}
 		return pagamentoEscolhido;
